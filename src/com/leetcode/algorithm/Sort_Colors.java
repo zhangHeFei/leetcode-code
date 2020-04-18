@@ -1,7 +1,15 @@
 package com.leetcode.algorithm;
 
+/**
+ * 颜色排序
+ */
 public class Sort_Colors {
-    public void sortColors(int[] nums){
+
+    /**
+     * 使用堆排序
+     * @param nums
+     */
+    public void sortColors_1(int[] nums){
         buildHeap(nums);
         int size = nums.length;
         while (size > 0){
@@ -39,6 +47,16 @@ public class Sort_Colors {
         nums[b] = temp;
     }
 
+    /**
+     * 标记1的最左边位置（p1）和2的最左边位置（p2），当前位置curr和curr - 1比较，
+     * if nums[curr] >= nums[curr - 1] ,  then  continue；
+     * if nums[curr] < nums[curr - 1] 则会有三种情况  10  21  20
+     *    if  nums[curr] == 0   nums[curr - 1] == 1 , then  swap(curr, p1) , p1 ++
+     *    if nums[curr] == 1    nums[curr - 1] == 2   then swap(curr, p2), p2 ++
+     *    if nums[curr] == 0   nums[curr - 1]  == 2  then swap(curr, p2), swap(p2, p1) , p1 ++ p2 ++
+     *
+     * @param nums
+     */
     private static void sortColors_2(int[] nums) {
         int minIndexOne = -1;
         int minIndexTwo = -1;

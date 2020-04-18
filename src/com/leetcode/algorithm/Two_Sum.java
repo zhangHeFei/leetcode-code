@@ -3,7 +3,11 @@ package com.leetcode.algorithm;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 两数相加
+ */
 public class Two_Sum {
+
     public int[] towSum_1(int[] nums, int target){
         int[] result = new int[2];
         for (int i = 0; i < nums.length; i ++){
@@ -18,7 +22,7 @@ public class Two_Sum {
         return result;
     }
 
-    public int[] towSum_2(int[] nums, int target){
+    private int[] towSum_2(int[] nums, int target){
         Map<Integer,Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i ++){
             if (map.get(target - nums[i]) != null){
