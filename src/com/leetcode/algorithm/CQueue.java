@@ -2,6 +2,9 @@ package com.leetcode.algorithm;
 
 import java.util.Stack;
 
+/**
+ * 用栈实现一个队列
+ */
 public class CQueue {
 
     /** stack1用于添加元素 */
