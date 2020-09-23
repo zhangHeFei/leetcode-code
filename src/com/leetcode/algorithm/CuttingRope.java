@@ -44,6 +44,30 @@ public class CuttingRope {
         return dp[n];
     }
 
+    /**
+     * 新版的 dp数组代表max(出现的乘积，自身的长度)
+     * @param n
+     * @return
+     */
+    public int newCuttingRope(int n){
+        if (n == 2){
+            return 1;
+        }
+        if (n == 3) {
+            return 2;
+        }
+        int[] dp = new int[n + 1];
+        dp[2] = 2;
+        dp[3] = 3;
+        for (int i = 4; i <= n; i ++){
+            for (int j = 1; j <= Math.ceil(i / 2.0); j ++){
+                dp[i] = Math.max(dp[i], dp[j] * dp[i -j]);
+            }
+        }
+        return dp[n];
+    }
+
+
     public int cuttingRope2(int n){
         BigInteger[] dp = new BigInteger[n + 1];
         dp[1] = new BigInteger("0");
